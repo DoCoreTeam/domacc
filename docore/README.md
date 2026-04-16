@@ -53,11 +53,144 @@ You type one command → CEO asks questions → then orchestrates everything:
 
 ## 📋 Commands
 
+### DOCORE (CEO System)
+
 | Command | What it does |
 |---------|-------------|
-| `/ceo "task"` | Q&A → full pipeline with all 16 agents |
-| `/ceo-init` | Initialize project (registries + harness) |
-| `/ceo-status` | Show project status |
+| `/ceo "task"` | Q&A → full pipeline with all 16 agents (PLANNER→GENERATOR→EVALUATOR→GATE→REPORT) |
+| `/ceo-init` | Initialize project — registries, harness, CLAUDE.md |
+| `/ceo-status` | Show current project status, gate results, active agents |
+
+### Development (ECC — Everything Claude Code)
+
+| Command | Category | What it does |
+|---------|----------|-------------|
+| `/plan` | Planning | Step-by-step implementation plan, waits for confirm before coding |
+| `/feature-dev` | Planning | Guided feature development with codebase analysis |
+| `/prp-prd` | Planning | Interactive PRD generator — problem-first product spec |
+| `/prp-plan` | Planning | Comprehensive implementation plan with pattern extraction |
+| `/prp-implement` | Planning | Execute PRP plan with validation loops |
+| `/prp-pr` | Planning | Create GitHub PR from current branch |
+| `/prp-commit` | Planning | Smart commit with natural language file targeting |
+| `/multi-plan` | Planning | Multi-model collaborative planning |
+| `/multi-execute` | Planning | Multi-model collaborative execution |
+| `/multi-frontend` | Planning | Frontend-focused multi-model development |
+| `/multi-backend` | Planning | Backend-focused multi-model development |
+| `/multi-workflow` | Planning | Full multi-model collaborative workflow |
+| `/code-review` | Review | Review local changes or GitHub PR |
+| `/review-pr` | Review | Comprehensive PR review with specialized agents |
+| `/security-review` | Review | OWASP Top 10, secrets, injection, auth audit |
+| `/python-review` | Review | Python — PEP 8, type hints, security, idioms |
+| `/go-review` | Review | Go — idiomatic patterns, concurrency, error handling |
+| `/rust-review` | Review | Rust — ownership, lifetimes, unsafe, idioms |
+| `/cpp-review` | Review | C++ — memory safety, modern idioms, concurrency |
+| `/flutter-review` | Review | Flutter/Dart — widgets, state management, performance |
+| `/kotlin-review` | Review | Kotlin — null safety, coroutines, Compose |
+| `/quality-gate` | Quality | Run all quality gates |
+| `/santa-loop` | Quality | Adversarial dual-review — two reviewers must both approve |
+| `/refactor-clean` | Quality | Remove dead code, consolidate duplicates |
+| `/perf-check` | Quality | Performance analysis — bottlenecks, bundle size |
+| `/test-coverage` | Quality | Analyze coverage gaps |
+| `/tdd` | Test | TDD workflow — RED → GREEN → REFACTOR |
+| `/test` | Test | Run tests and report failures |
+| `/e2e` | Test | End-to-end testing with Playwright |
+| `/go-test` | Test | TDD for Go — table-driven, 80%+ coverage |
+| `/rust-test` | Test | TDD for Rust — cargo-llvm-cov |
+| `/cpp-test` | Test | TDD for C++ — GoogleTest |
+| `/flutter-test` | Test | Flutter — unit, widget, golden, integration |
+| `/kotlin-test` | Test | TDD for Kotlin — Kotest + Kover |
+| `/build-fix` | Build | Fix build errors incrementally |
+| `/go-build` | Build | Fix Go build, vet, linter issues |
+| `/rust-build` | Build | Fix Rust build, borrow checker, Cargo |
+| `/cpp-build` | Build | Fix C++ build, CMake, linker |
+| `/flutter-build` | Build | Fix Dart analyzer, Flutter build |
+| `/kotlin-build` | Build | Fix Kotlin/Gradle, compiler warnings |
+| `/gradle-build` | Build | Fix Gradle for Android and KMP |
+| `/debug` | Debug | Diagnose and fix bugs systematically |
+| `/investigate` | Debug | Root cause analysis with evidence |
+| `/design` | Design | Design system and UI generation |
+| `/ui-design` | Design | UI component design |
+| `/save-session` | Session | Save session state for future resume |
+| `/resume-session` | Session | Load last session and resume with full context |
+| `/sessions` | Session | Manage session history and metadata |
+| `/checkpoint` | Session | Save a progress checkpoint |
+| `/context-budget` | Session | Monitor context window usage |
+| `/aside` | Session | Quick side question without losing task context |
+| `/learn` | Learning | Extract reusable patterns from session |
+| `/learn-eval` | Learning | Extract and self-evaluate patterns before saving |
+| `/evolve` | Learning | Analyze instincts and suggest improvements |
+| `/instinct-status` | Learning | Show learned instincts with confidence scores |
+| `/instinct-import` | Learning | Import instincts from file or URL |
+| `/instinct-export` | Learning | Export instincts to file |
+| `/promote` | Learning | Promote project instincts to global scope |
+| `/prune` | Learning | Delete stale instincts older than 30 days |
+| `/hookify` | Hooks | Create hooks from conversation analysis |
+| `/hookify-configure` | Hooks | Enable/disable hookify rules |
+| `/hookify-help` | Hooks | Get help with hookify system |
+| `/hookify-list` | Hooks | List all configured hookify rules |
+| `/pipeline` | DevOps | Set up CI/CD pipeline |
+| `/pm2` | DevOps | Initialize PM2 process manager |
+| `/setup-pm` | DevOps | Configure package manager (npm/pnpm/yarn/bun) |
+| `/devfleet` | DevOps | Claude DevFleet multi-agent deployment |
+| `/docs` | Docs | Documentation lookup via Context7 |
+| `/update-docs` | Docs | Update project documentation |
+| `/update-codemaps` | Docs | Regenerate codebase codemaps |
+| `/report` | Docs | Generate project status report |
+| `/cost-estimate` | Cost | Estimate token cost before operations |
+| `/model-route` | Cost | Route tasks to optimal model |
+| `/prompt-optimize` | Cost | Optimize prompts for cost and accuracy |
+| `/loop-start` | Loop | Start a recurring agent loop |
+| `/loop-status` | Loop | Show status of running loops |
+| `/orchestrate` | Loop | Multi-agent orchestration |
+| `/jira` | Misc | Retrieve Jira ticket, update status |
+| `/skill-create` | Misc | Generate SKILL.md from git history |
+| `/skill-health` | Misc | Skill portfolio health dashboard |
+| `/rules-distill` | Misc | Distill rules from codebase patterns |
+| `/agent-sort` | Misc | Sort and prioritize agents |
+| `/evaluate-oss` | Misc | Evaluate open source library fit |
+| `/spec` | Misc | Generate technical specification |
+
+### gstack Commands
+
+| Command | What it does |
+|---------|-------------|
+| `/ship` | Full ship workflow — test, build, review, deploy |
+| `/qa` | QA the running app — browser, flows, screenshots |
+| `/qa-only` | QA without shipping |
+| `/investigate` | Diagnose bugs and errors with root cause |
+| `/review` | Code review for current diff |
+| `/health` | Project health — quality, coverage, security |
+| `/plan` | Plan a feature with interactive Q&A |
+| `/design` | Design system, brand, component guidance |
+| `/design-review` | Visual design review and polish |
+| `/design-consultation` | Design direction consultation |
+| `/design-html` | Generate HTML/CSS from design specs |
+| `/design-shotgun` | Rapid multi-direction design exploration |
+| `/docs` | Update or generate documentation |
+| `/document-release` | Update docs after shipping |
+| `/learn` | Extract and save session learnings |
+| `/retro` | Weekly retrospective |
+| `/checkpoint` | Save a progress checkpoint |
+| `/freeze` | Freeze a file/module — stop all changes |
+| `/unfreeze` | Unfreeze a frozen file or module |
+| `/canary` | Deploy a canary release |
+| `/guard` | Add guards against regressions |
+| `/careful` | Enable extra-careful mode for sensitive changes |
+| `/browse` | Open and inspect a URL in the browser |
+| `/connect-chrome` | Connect to a running Chrome instance |
+| `/setup-deploy` | Set up deployment configuration |
+| `/setup-browser-cookies` | Configure browser session cookies |
+| `/benchmark` | Run performance benchmarks |
+| `/autoplan` | Auto-generate implementation plan from context |
+| `/office-hours` | Brainstorm, product ideas, feasibility check |
+| `/land-and-deploy` | Land changes and deploy to production |
+| `/codex` | Code exploration and understanding |
+| `/cso` | Chief of Staff — communication triage |
+| `/plan-ceo-review` | CEO-level plan review |
+| `/plan-eng-review` | Engineering architecture review |
+| `/plan-design-review` | Design review at plan stage |
+| `/test` | Run tests |
+| `/gstack-upgrade` | Upgrade gstack to the latest version |
 
 ## 🤖 16 Agents
 

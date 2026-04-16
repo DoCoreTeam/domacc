@@ -122,11 +122,214 @@ Then open any project in Claude Code — CEO mode activates automatically. Run `
 
 ## Commands / 명령어
 
-| Command | EN | KO |
-|---------|----|----|
-| `/ceo "task"` | Q&A → full pipeline with all 16 agents | Q&A 후 16개 에이전트 전체 파이프라인 실행 |
-| `/ceo-init` | Initialize project (registries + harness) | 프로젝트 초기 셋업 (레지스트리 + 하네스) |
-| `/ceo-status` | Show current project status | 현재 프로젝트 상태 조회 |
+DOCORE ADK installs commands from three sources: DOCORE (CEO system), ECC (Everything Claude Code), and gstack.
+
+DOCORE ADK는 세 가지 소스에서 커맨드를 설치합니다: DOCORE(CEO 시스템), ECC, gstack.
+
+### DOCORE Commands (CEO System)
+
+| Command | Description (EN) | 설명 (KO) |
+|---------|-----------------|-----------|
+| `/ceo "task"` | Q&A → full pipeline: PLANNER → GENERATOR → EVALUATOR → GATE → REPORT | Q&A 후 전체 파이프라인 실행 (16개 에이전트) |
+| `/ceo-init` | Initialize project — create registries, harness, CLAUDE.md | 프로젝트 최초 셋업 (레지스트리 + 하네스 초기화) |
+| `/ceo-status` | Show current project status, active agents, and gate results | 현재 프로젝트 상태 / 활성 에이전트 / 게이트 결과 조회 |
+
+### Development Commands (ECC)
+
+#### Code Review & Quality
+| Command | Description |
+|---------|-------------|
+| `/code-review` | Review local uncommitted changes or GitHub PR (pass PR number/URL) |
+| `/review-pr` | Comprehensive PR review using specialized agents |
+| `/security-review` | Security audit — OWASP Top 10, secrets, injection, auth |
+| `/quality-gate` | Run all quality gates and report status |
+| `/santa-loop` | Adversarial dual-review loop — two independent reviewers must both approve |
+| `/refactor-clean` | Remove dead code, consolidate duplicates, clean unused imports |
+| `/perf-check` | Performance analysis — bottlenecks, bundle size, runtime speed |
+| `/test-coverage` | Analyze test coverage and identify gaps |
+
+#### Build & Fix
+| Command | Description |
+|---------|-------------|
+| `/build-fix` | Diagnose and fix build errors incrementally |
+| `/go-build` | Fix Go build errors, go vet warnings, linter issues |
+| `/rust-build` | Fix Rust build errors, borrow checker, Cargo issues |
+| `/cpp-build` | Fix C++ build errors, CMake issues, linker problems |
+| `/flutter-build` | Fix Dart analyzer errors and Flutter build failures |
+| `/kotlin-build` | Fix Kotlin/Gradle build errors, compiler warnings |
+| `/gradle-build` | Fix Gradle build errors for Android and KMP projects |
+
+#### Test & TDD
+| Command | Description |
+|---------|-------------|
+| `/tdd` | TDD workflow — write test first (RED), implement (GREEN), refactor |
+| `/test` | Run tests and report failures |
+| `/e2e` | End-to-end testing with Playwright |
+| `/go-test` | TDD for Go — table-driven tests, 80%+ coverage with go test |
+| `/rust-test` | TDD for Rust — write tests first, verify with cargo-llvm-cov |
+| `/cpp-test` | TDD for C++ — GoogleTest first, then implement |
+| `/flutter-test` | Flutter/Dart tests — unit, widget, golden, integration |
+| `/kotlin-test` | TDD for Kotlin — Kotest first, verify with Kover |
+
+#### Code Review (Language-specific)
+| Command | Description |
+|---------|-------------|
+| `/python-review` | Python code review — PEP 8, type hints, security, idioms |
+| `/go-review` | Go code review — idiomatic patterns, concurrency, error handling |
+| `/rust-review` | Rust code review — ownership, lifetimes, unsafe, idioms |
+| `/cpp-review` | C++ code review — memory safety, modern idioms, concurrency |
+| `/flutter-review` | Flutter/Dart review — widget best practices, state management |
+| `/kotlin-review` | Kotlin review — null safety, coroutine safety, Compose |
+
+#### Planning & Feature Development
+| Command | Description |
+|---------|-------------|
+| `/plan` | Create step-by-step implementation plan. Waits for user confirmation before touching code |
+| `/feature-dev` | Guided feature development with codebase analysis and architecture focus |
+| `/implement` | Execute an implementation plan |
+| `/spec` | Generate technical specification for a feature |
+| `/prp-prd` | Interactive PRD generator — problem-first, hypothesis-driven product spec |
+| `/prp-plan` | Comprehensive feature implementation plan with codebase pattern extraction |
+| `/prp-implement` | Execute a PRP implementation plan with rigorous validation loops |
+| `/prp-commit` | Quick commit with natural language file targeting |
+| `/prp-pr` | Create GitHub PR from current branch with unpushed commits |
+| `/multi-plan` | Multi-model collaborative planning |
+| `/multi-execute` | Multi-model collaborative execution |
+| `/multi-frontend` | Frontend-focused multi-model development |
+| `/multi-backend` | Backend-focused multi-model development |
+| `/multi-workflow` | Full multi-model collaborative workflow |
+
+#### Design & UI
+| Command | Description |
+|---------|-------------|
+| `/design` | Design system and UI generation |
+| `/ui-design` | UI component design and generation |
+
+#### Debugging & Investigation
+| Command | Description |
+|---------|-------------|
+| `/debug` | Diagnose and fix bugs systematically |
+| `/evaluate-oss` | Evaluate open source library quality and fit |
+
+#### Session & Context Management
+| Command | Description |
+|---------|-------------|
+| `/save-session` | Save current session state to `~/.claude/session-data/` for future resume |
+| `/resume-session` | Load most recent session and resume with full context |
+| `/sessions` | Manage Claude Code session history and metadata |
+| `/checkpoint` | Save a checkpoint of current progress |
+| `/context-budget` | Monitor and manage context window usage |
+| `/aside` | Answer a quick side question without losing current task context |
+| `/s` | Orchestration workflow shortcut |
+
+#### Learning & Instincts
+| Command | Description |
+|---------|-------------|
+| `/learn` | Extract reusable patterns from current session |
+| `/learn-eval` | Extract patterns, self-evaluate quality, save to global or project scope |
+| `/evolve` | Analyze instincts and suggest evolved structures |
+| `/instinct-status` | Show learned instincts (project + global) with confidence scores |
+| `/instinct-import` | Import instincts from file or URL |
+| `/instinct-export` | Export instincts to file |
+| `/promote` | Promote project-scoped instincts to global scope |
+| `/prune` | Delete stale pending instincts older than 30 days |
+| `/projects` | List known projects and instinct statistics |
+
+#### Hooks & Automation
+| Command | Description |
+|---------|-------------|
+| `/hookify` | Create hooks from conversation analysis to prevent unwanted behaviors |
+| `/hookify-configure` | Enable or disable hookify rules interactively |
+| `/hookify-help` | Get help with the hookify system |
+| `/hookify-list` | List all configured hookify rules |
+
+#### DevOps & Deployment
+| Command | Description |
+|---------|-------------|
+| `/pipeline` | Set up CI/CD pipeline |
+| `/pm2` | Initialize and configure PM2 process manager |
+| `/setup-pm` | Configure preferred package manager (npm/pnpm/yarn/bun) |
+| `/devfleet` | Claude DevFleet multi-agent deployment |
+| `/promote` | Promote instincts or changes to global scope |
+
+#### Docs & Reporting
+| Command | Description |
+|---------|-------------|
+| `/docs` | Documentation lookup via Context7 |
+| `/update-docs` | Update project documentation |
+| `/update-codemaps` | Regenerate codebase codemaps |
+| `/report` | Generate project status report |
+
+#### Cost & Performance
+| Command | Description |
+|---------|-------------|
+| `/cost-estimate` | Estimate token cost before running expensive operations |
+| `/model-route` | Route tasks to the optimal model (Haiku/Sonnet/Opus) |
+| `/prompt-optimize` | Optimize prompts to reduce cost and improve accuracy |
+
+#### Loop & Orchestration
+| Command | Description |
+|---------|-------------|
+| `/loop-start` | Start a recurring agent loop on an interval |
+| `/loop-status` | Show status of running loops |
+| `/orchestrate` | Multi-agent orchestration workflow |
+| `/santa-loop` | Adversarial dual-review convergence loop |
+
+#### Misc
+| Command | Description |
+|---------|-------------|
+| `/jira` | Retrieve Jira ticket, update status, add comments |
+| `/skill-create` | Analyze git history to extract patterns and generate SKILL.md |
+| `/skill-health` | Show skill portfolio health dashboard |
+| `/agent-sort` | Sort and prioritize agents for a task |
+| `/rules-distill` | Distill project rules from codebase patterns |
+| `/claw` | nanoclaw REPL shortcut |
+| `/ceo-init` | Project initialization (also listed under DOCORE) |
+
+### gstack Commands
+
+gstack provides battle-tested workflows for shipping code.
+
+| Command | Description |
+|---------|-------------|
+| `/ship` | Full ship workflow — test, build, review, deploy |
+| `/qa` | QA the running app — browser, flows, screenshots, bugs |
+| `/qa-only` | QA without shipping |
+| `/investigate` | Diagnose bugs, errors, 500s with evidence |
+| `/review` | Code review for current diff |
+| `/health` | Project health check — code quality, coverage, security |
+| `/plan` | Plan a feature with interactive Q&A (gstack version) |
+| `/design` | Design system, brand, and component guidance |
+| `/design-review` | Visual design review and polish |
+| `/design-consultation` | Design consultation and direction |
+| `/design-html` | Generate HTML/CSS from design specs |
+| `/design-shotgun` | Rapid design exploration — multiple directions at once |
+| `/docs` | Update or generate documentation (gstack version) |
+| `/document-release` | Update docs after shipping |
+| `/learn` | Extract and save learnings from session (gstack version) |
+| `/retro` | Weekly retrospective |
+| `/checkpoint` | Save a progress checkpoint (gstack version) |
+| `/freeze` | Freeze — stop all changes to a file or module |
+| `/unfreeze` | Unfreeze a file or module |
+| `/canary` | Deploy a canary release |
+| `/guard` | Add guards to prevent regressions |
+| `/careful` | Enable extra-careful mode for sensitive changes |
+| `/browse` | Open and inspect a URL in the browser |
+| `/connect-chrome` | Connect to a running Chrome instance |
+| `/setup-deploy` | Set up deployment configuration |
+| `/setup-browser-cookies` | Configure browser session cookies |
+| `/benchmark` | Run performance benchmarks |
+| `/autoplan` | Auto-generate implementation plan from context |
+| `/office-hours` | Office hours — brainstorm, product ideas, feasibility |
+| `/investigate` | Investigate bugs and errors with root cause analysis |
+| `/land-and-deploy` | Land changes and deploy to production |
+| `/codex` | Code exploration and understanding |
+| `/cso` | Chief of Staff — communication triage and management |
+| `/plan-ceo-review` | CEO-level plan review |
+| `/plan-eng-review` | Engineering architecture review |
+| `/plan-design-review` | Design review at plan stage |
+| `/test` | Run tests (gstack version) |
+| `/gstack-upgrade` | Upgrade gstack to the latest version |
 
 ---
 
