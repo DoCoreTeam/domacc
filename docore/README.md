@@ -8,6 +8,9 @@
 
 This single command activates **16 specialized AI agents** that plan, develop, test, and deploy your project — in the correct development order, with no steps skipped.
 
+> Before executing, CEO always asks clarifying questions first (tech stack, platform, completion criteria). No blind execution.
+> 실행 전 CEO가 먼저 핵심 질문을 합니다. 묻지도 않고 실행하지 않습니다.
+
 ## ⚡ Install
 
 ```bash
@@ -15,16 +18,22 @@ This single command activates **16 specialized AI agents** that plan, develop, t
 curl -sSL https://raw.githubusercontent.com/DoCoreTeam/docore/main/docore/install.sh | bash
 
 # Or manual
-git clone https://github.com/DoCoreTeam/docore.git /tmp/docore && cp -r /tmp/docore/docore ~/.claude/skills/docore
+git clone https://github.com/DoCoreTeam/docore.git /tmp/docore && bash /tmp/docore/docore/install.sh
 ```
+
+Installs automatically: **16 DOCORE agents** + **/ceo commands** + **ECC (183 skills)** + **gstack** + **Superpowers**
+자동 설치: **16개 에이전트** + **/ceo 커맨드** + **ECC (183개 스킬)** + **gstack** + **Superpowers**
 
 ## 🎯 How It Works
 
-You type one command → CEO orchestrates everything:
+You type one command → CEO asks questions → then orchestrates everything:
 
 ```
 /ceo "원하는 것"
      │
+     ▼
+⓪ Q&A ──── CEO가 3~7개 질문 (기술스택, 플랫폼, 완료기준, 제약)
+     │       답변 후 → [Q&A COMPLETE] → 파이프라인 시작
      ▼
 ① PLANNER ──── DC-BIZ (사업판단) + DC-RES (리서치) + DC-OSS (라이브러리)
      │            → PLAN.md 산출
@@ -46,7 +55,7 @@ You type one command → CEO orchestrates everything:
 
 | Command | What it does |
 |---------|-------------|
-| `/ceo "task"` | Run full pipeline with all 16 agents |
+| `/ceo "task"` | Q&A → full pipeline with all 16 agents |
 | `/ceo-init` | Initialize project (registries + harness) |
 | `/ceo-status` | Show project status |
 

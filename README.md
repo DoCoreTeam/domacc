@@ -22,6 +22,10 @@ One command triggers the full pipeline / 명령 하나로 전체 파이프라인
 /ceo "인증과 결제 기능이 있는 SaaS 투두앱 만들어줘"
 ```
 
+**EN** — Before executing, CEO always asks clarifying questions first (tech stack, platform, completion criteria, constraints). No blind execution.
+
+**KO** — 실행 전 CEO가 먼저 핵심 질문을 합니다 (기술스택, 플랫폼, 완료 기준, 제약사항). 묻지도 않고 실행하지 않습니다.
+
 ---
 
 ## Quick Install / 빠른 설치
@@ -37,6 +41,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/docore/main/docore/instal
 4. `~/.claude/CLAUDE.md` (auto-loaded on every Claude Code session)
 5. **ECC (Everything Claude Code)** — 183 skills + 79 commands agents rely on → `~/.claude/skills/` + `~/.claude/commands/`
 6. **gstack** → `~/.claude/skills/gstack/` (skipped if already installed)
+7. **Superpowers** → installed via `claude plugin` or GitHub fallback (skipped if already present)
 
 Then open any project in Claude Code — CEO mode activates automatically. Run `/ceo-init` to initialize the project.
 
@@ -47,6 +52,7 @@ Then open any project in Claude Code — CEO mode activates automatically. Run `
 4. `~/.claude/CLAUDE.md` (Claude Code 세션마다 자동 로드)
 5. **ECC (Everything Claude Code)** — 에이전트가 의존하는 스킬 183개 + 커맨드 79개 자동 설치
 6. **gstack** → `~/.claude/skills/gstack/` (이미 설치된 경우 스킵)
+7. **Superpowers** → `claude plugin`으로 설치 시도, 불가 시 GitHub fallback (이미 설치된 경우 스킵)
 
 설치 후 Claude Code에서 아무 프로젝트나 열면 CEO 모드가 자동 활성화됩니다. `/ceo-init`으로 프로젝트를 초기화하세요.
 
@@ -56,6 +62,12 @@ Then open any project in Claude Code — CEO mode activates automatically. Run `
 
 ```
 /ceo "task"
+     │
+     ▼
+⓪ Q&A ──── CEO asks 3~7 clarifying questions before any work
+     │       CEO가 3~7개 질문 후 답변 받으면 진행
+     │       (tech stack / platform / done criteria / constraints)
+     │       (기술스택 / 플랫폼 / 완료기준 / 제약)
      │
      ▼
 ① PLANNER ── DC-BIZ + DC-RES + DC-OSS → PLAN.md
@@ -112,7 +124,7 @@ Then open any project in Claude Code — CEO mode activates automatically. Run `
 
 | Command | EN | KO |
 |---------|----|----|
-| `/ceo "task"` | Run full pipeline with all 16 agents | 16개 에이전트 전체 파이프라인 실행 |
+| `/ceo "task"` | Q&A → full pipeline with all 16 agents | Q&A 후 16개 에이전트 전체 파이프라인 실행 |
 | `/ceo-init` | Initialize project (registries + harness) | 프로젝트 초기 셋업 (레지스트리 + 하네스) |
 | `/ceo-status` | Show current project status | 현재 프로젝트 상태 조회 |
 
@@ -182,7 +194,8 @@ Then open any project in Claude Code — CEO mode activates automatically. Run `
 ├── skills/
 │   ├── ceo-system/
 │   │   └── SKILL.md             ← CEO orchestration brain / CEO 오케스트레이션
-│   └── gstack/                  ← Auto-installed / 자동 설치
+│   ├── gstack/                  ← Auto-installed / 자동 설치
+│   └── superpowers/             ← Auto-installed (plugin or GitHub) / 자동 설치
 ├── error-registry.md            ← Gate 1 error pattern log
 ├── skill-registry.md
 ├── project-registry.md
@@ -224,18 +237,19 @@ bash /tmp/docore/docore/install.sh
 
 ## Dependencies / 의존성
 
-DOCORE relies on two external skill systems. The installer handles both automatically.
+DOCORE relies on three external skill systems. The installer handles all automatically.
 
-DOCORE는 두 가지 외부 스킬 시스템에 의존합니다. 설치 스크립트가 자동으로 처리합니다.
+DOCORE는 세 가지 외부 스킬 시스템에 의존합니다. 설치 스크립트가 자동으로 처리합니다.
 
 | Dependency | Repo | What it provides | Installed to |
 |------------|------|-----------------|-------------|
 | **ECC** | [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) | 183 skills + 79 commands agents rely on | `~/.claude/skills/` + `~/.claude/commands/` |
 | **gstack** | [garrytan/gstack](https://github.com/garrytan/gstack) | Garry Tan's 23-tool Claude Code setup | `~/.claude/skills/gstack/` |
+| **Superpowers** | obra/superpowers-marketplace | Claude Code plugin marketplace superpowers | via `claude plugin` or `~/.claude/skills/superpowers/` |
 
-**EN** — Both are installed automatically by the installer. No manual steps needed.
+**EN** — All three are installed automatically by the installer. No manual steps needed.
 
-**KO** — 설치 스크립트가 두 가지 모두 자동 설치합니다. 별도 작업 불필요.
+**KO** — 설치 스크립트가 세 가지 모두 자동 설치합니다. 별도 작업 불필요.
 
 ---
 
