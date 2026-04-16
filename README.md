@@ -36,9 +36,9 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/ceo/main/docore/install.s
 
 ### 1. Asks before acting / 행동 전 반드시 묻습니다
 
-**EN** — Every other AI tool starts writing code the moment you press Enter. CEO stops and asks 3–7 targeted questions: What's the tech stack? What platform? What does "done" look like? What are the constraints? Only after you answer does the pipeline begin. No guessing. No wasted work. No "I built the wrong thing."
+**EN** — Every other AI tool starts writing code the moment you press Enter. CEO stops and asks up to 12 targeted questions: tech stack, platform, existing codebase, done criteria, user scale, auth, data models, external APIs, constraints, design direction, deployment, and any extra context. Only after you answer does the pipeline begin. No guessing. No wasted work. No "I built the wrong thing."
 
-**KO** — 다른 모든 AI 도구는 Enter를 누르는 순간 코드를 쓰기 시작합니다. CEO는 멈추고 3~7개의 핵심 질문을 합니다: 기술 스택은? 어떤 플랫폼? "완료"의 기준은? 제약 조건은? 답변을 받은 후에만 파이프라인이 시작됩니다. 추측 없음. 낭비 없음. "엉뚱한 것을 만들었다"는 말 없음.
+**KO** — 다른 모든 AI 도구는 Enter를 누르는 순간 코드를 쓰기 시작합니다. CEO는 멈추고 최대 12개의 핵심 질문을 합니다: 기술 스택, 플랫폼, 기존 코드베이스, 완료 기준, 사용자 규모, 인증, 데이터 모델, 외부 API, 제약, 디자인 방향, 배포 환경, 추가 맥락. 답변을 받은 후에만 파이프라인이 시작됩니다. 추측 없음. 낭비 없음. "엉뚱한 것을 만들었다"는 말 없음.
 
 ### 2. 16 specialists working in parallel / 16명의 전문가가 병렬로 작동합니다
 
@@ -54,9 +54,9 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/ceo/main/docore/install.s
 
 ### 4. The best tools in one place / 최고의 도구들이 한 곳에
 
-**EN** — CEO doesn't just orchestrate its own 16 agents. It installs and combines three elite tool systems — ECC (183 skills, 79 commands), gstack (Garry Tan's battle-tested ship/QA/investigate toolkit), and Superpowers — then unifies them through 10 CEO-* orchestrators so you get the best of all three with one command.
+**EN** — CEO doesn't just orchestrate its own 16 agents. It installs three elite tool systems — ECC (183 skills), gstack (Garry Tan's battle-tested ship/QA/investigate toolkit), and Superpowers (required) — and unifies them through 10 CEO-* orchestrators. ECC commands are intentionally not exposed individually — access everything through CEO-* so your command list stays clean and purposeful.
 
-**KO** — CEO는 자체 16개 에이전트만 오케스트레이션하는 것이 아닙니다. 세 가지 엘리트 도구 시스템 — ECC (스킬 183개, 커맨드 79개), gstack (Garry Tan의 검증된 ship/QA/investigate 툴킷), Superpowers — 을 설치하고 결합한 뒤, 10개의 CEO-* 오케스트레이터로 통합합니다. 명령 하나로 세 가지 모두의 최선을 얻습니다.
+**KO** — CEO는 자체 16개 에이전트만 오케스트레이션하는 것이 아닙니다. 세 가지 엘리트 도구 시스템 — ECC (스킬 183개), gstack (Garry Tan의 검증된 ship/QA/investigate 툴킷), Superpowers (필수) — 을 설치하고 10개의 CEO-* 오케스트레이터로 통합합니다. ECC 커맨드는 의도적으로 개별 노출하지 않습니다 — CEO-* 를 통해 접근하여 커맨드 목록을 깔끔하게 유지합니다.
 
 ### 5. Gets smarter every session / 매 세션마다 더 똑똑해집니다
 
@@ -93,7 +93,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/ceo/main/docore/install.s
 | What gets updated / 업데이트 항목 | Behavior / 동작 |
 |----------------------------------|----------------|
 | CEO agents, commands, SKILL.md | ✅ Always overwritten to latest / 항상 최신으로 덮어씀 |
-| ECC (183 skills + 79 commands) | ✅ Full replacement / 전체 교체 |
+| ECC (183 skills) | ✅ Skills replaced, commands not installed (use /ceo-* instead) / 스킬 교체, 커맨드 미설치 (/ceo-* 사용) |
 | gstack | ✅ `git pull` (re-clone if needed) |
 | Superpowers | ✅ `claude plugin update` (re-clone if needed) |
 | Registries (error-registry etc.) | ⏭️ Preserved — your data stays / 보존 — 사용자 데이터 유지 |
@@ -103,9 +103,9 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/ceo/main/docore/install.s
 2. **14 CEO commands** → `~/.claude/commands/` — `/ceo` + 10 CEO-* orchestrators + `/ceo-init` `/ceo-status` / `/ceo` + 10개 CEO-* 오케스트레이터
 3. **CEO brain (SKILL.md)** → `~/.claude/skills/ceo-system/` — the full orchestration system / 전체 오케스트레이션 시스템
 4. **CLAUDE.md** → `~/.claude/` — activates CEO mode on every Claude Code session / 모든 세션에서 CEO 모드 자동 활성화
-5. **ECC** — 183 skills + 79 commands / 스킬 183개 + 커맨드 79개
+5. **ECC** — 183 skills (skills only — CEO-* orchestrators expose the capabilities) / 스킬 183개 (CEO-* 를 통해 접근)
 6. **gstack** — Garry Tan's 35+ ship/QA/investigate tools / Garry Tan의 35개 이상 도구
-7. **Superpowers** — Claude Code marketplace superpowers / Claude Code 마켓플레이스 슈퍼파워
+7. **Superpowers** — Required. Claude Code marketplace superpowers / 필수. Claude Code 마켓플레이스 슈퍼파워
 
 ---
 
@@ -116,10 +116,10 @@ You type: /ceo "Build me a SaaS"
 당신이 입력: /ceo "SaaS 만들어줘"
           │
           ▼
-⓪ Q&A ── CEO asks 3–7 targeted questions before touching anything
-          코드 한 줄 쓰기 전 CEO가 3~7개 핵심 질문
-          "Tech stack? Platform? What does done look like? Constraints?"
-          "기술스택? 플랫폼? 완료 기준? 제약사항?"
+⓪ Q&A ── CEO asks up to 12 targeted questions before touching anything
+          코드 한 줄 쓰기 전 CEO가 최대 12개 핵심 질문
+          "Stack? Platform? Codebase? Done criteria? Scale? Auth? Data? APIs? Constraints? Design? Deploy? Extra?"
+          "스택? 플랫폼? 코드? 완료기준? 규모? 인증? 데이터? API? 제약? 디자인? 배포? 추가맥락?"
           │
           ▼  [You answer / 답변 후]
           │
@@ -135,15 +135,17 @@ You type: /ceo "Build me a SaaS"
           ▼  → PLAN.md generated / PLAN.md 생성
           │
 ② GENERATOR (all in parallel / 전원 병렬)
+  CORE (always / 항상):
   ├── DC-DEV-DB:  Schema + migrations
   ├── DC-DEV-BE:  API + business logic
   ├── DC-DEV-FE:  UI components + pages
-  ├── DC-DEV-MOB: Mobile adaptation
   ├── DC-DEV-OPS: CI/CD + harness
-  ├── DC-DEV-INT: External API integrations
-  ├── DC-WRT:     Marketing copy
-  ├── DC-DOC:     API docs + usage guides
-  └── DC-SEO:     Meta tags + Schema.org + SEO/AEO/GEO
+  └── DC-DOC:     API docs + usage guides
+  EXTENDED (added by CEO based on Q&A / Q&A 분석 후 CEO가 추가):
+  ├── DC-DEV-MOB: Mobile (if mobile platform)
+  ├── DC-DEV-INT: External API (if 3rd-party integrations)
+  ├── DC-WRT:     Marketing copy (if marketing pages needed)
+  └── DC-SEO:     SEO (if public web service)
           │
           ▼
 ③ CYCLE ┌─────────────────────────────────────────────────────┐
@@ -197,24 +199,24 @@ You type: /ceo "Build me a SaaS"
 
 ## 16 Agents / 16개 에이전트
 
-| Phase / 단계 | Agent | Role (EN) | 역할 (KO) | Model |
-|------|-------|-----------|-----------|-------|
-| PLANNER | DC-BIZ | Business Judge — is this worth building? | 사업 타당성 판단 — 만들 가치가 있는가? | Opus |
-| PLANNER | DC-RES | Researcher — tech, patterns, references | 리서처 — 기술, 패턴, 레퍼런스 | Haiku |
-| PLANNER | DC-OSS | Open Source Scout — Top 3 libraries | 오픈소스 탐색 — 최적 라이브러리 Top 3 | Opus |
-| GENERATOR | DC-DEV-FE | Frontend Developer | 프론트엔드 개발자 | Sonnet |
-| GENERATOR | DC-DEV-BE | Backend Developer | 백엔드 개발자 | Sonnet |
-| GENERATOR | DC-DEV-DB | Database Engineer | 데이터베이스 엔지니어 | Sonnet |
-| GENERATOR | DC-DEV-MOB | Mobile Developer | 모바일 개발자 | Sonnet |
-| GENERATOR | DC-DEV-OPS | DevOps Engineer | DevOps 엔지니어 | Sonnet |
-| GENERATOR | DC-DEV-INT | Integration Engineer | 외부 API 연동 엔지니어 | Sonnet |
-| GENERATOR | DC-WRT | Writer / Copywriter | 카피라이터 | Sonnet |
-| GENERATOR | DC-DOC | Documentation Writer | 기술 문서 작가 | Haiku |
-| GENERATOR | DC-SEO | SEO / AEO / GEO Specialist | SEO/AEO/GEO 전문가 | Haiku |
-| EVALUATOR | DC-QA | QA Engineer | 품질 검증 엔지니어 | Haiku |
-| EVALUATOR | DC-SEC | Security Reviewer | 보안 검토 전문가 | Opus |
-| EVALUATOR | DC-REV | Code Reviewer | 코드 리뷰 전문가 | Opus |
-| SUPPORT | DC-TOK | Token Optimizer | 토큰 비용 최적화 | Haiku |
+| Phase / 단계 | Tier | Agent | Role (EN) | 역할 (KO) | Model |
+|------|------|-------|-----------|-----------|-------|
+| PLANNER | CORE | DC-BIZ | Business Judge — is this worth building? | 사업 타당성 판단 | Opus |
+| PLANNER | CORE | DC-RES | Researcher — tech, patterns, references | 리서처 — 기술, 패턴, 레퍼런스 | Haiku |
+| PLANNER | CORE | DC-OSS | Open Source Scout — Top 3 libraries | 오픈소스 탐색 — 최적 라이브러리 Top 3 | Opus |
+| GENERATOR | CORE | DC-DEV-FE | Frontend Developer | 프론트엔드 개발자 | Sonnet |
+| GENERATOR | CORE | DC-DEV-BE | Backend Developer | 백엔드 개발자 | Sonnet |
+| GENERATOR | CORE | DC-DEV-DB | Database Engineer | 데이터베이스 엔지니어 | Sonnet |
+| GENERATOR | CORE | DC-DEV-OPS | DevOps Engineer | DevOps 엔지니어 | Sonnet |
+| GENERATOR | CORE | DC-DOC | Documentation Writer | 기술 문서 작가 | Haiku |
+| GENERATOR | EXTENDED | DC-DEV-MOB | Mobile Developer (mobile platform only) | 모바일 개발자 (모바일 포함 시) | Sonnet |
+| GENERATOR | EXTENDED | DC-DEV-INT | Integration Engineer (3rd-party APIs only) | 외부 API 연동 (연동 시) | Sonnet |
+| GENERATOR | EXTENDED | DC-WRT | Writer / Copywriter (marketing pages only) | 카피라이터 (마케팅 필요 시) | Sonnet |
+| GENERATOR | EXTENDED | DC-SEO | SEO / AEO / GEO Specialist (public web only) | SEO 전문가 (웹 공개 시) | Haiku |
+| EVALUATOR | CORE | DC-QA | QA Engineer | 품질 검증 엔지니어 | Haiku |
+| EVALUATOR | CORE | DC-SEC | Security Reviewer | 보안 검토 전문가 | Opus |
+| EVALUATOR | CORE | DC-REV | Code Reviewer | 코드 리뷰 전문가 | Opus |
+| SUPPORT | CORE | DC-TOK | Token Optimizer | 토큰 비용 최적화 | Haiku |
 
 ---
 
@@ -240,10 +242,11 @@ You type: /ceo "Build me a SaaS"
 | `/ceo-init` | Initialize project | 프로젝트 초기화 |
 | `/ceo-status` | Show current status | 현재 상태 조회 |
 
-### ECC Commands / ECC 커맨드 (Everything Claude Code)
+### ECC Capabilities / ECC 기능 (Everything Claude Code)
 
-**EN** — 79 specialized commands from [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code).
-**KO** — 79개 전문 커맨드.
+**EN** — 183 skills from [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code). ECC commands are **not installed individually** — they are accessed internally through CEO-* orchestrators. This keeps your command list clean. The capabilities below are all available; use the corresponding CEO-* command to trigger them.
+
+**KO** — [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code)의 183개 스킬. ECC 커맨드는 **개별 설치하지 않습니다** — CEO-* 오케스트레이터를 통해 내부적으로 접근합니다. 커맨드 목록을 깔끔하게 유지합니다. 아래 기능들은 모두 사용 가능하며, 해당 CEO-* 커맨드로 트리거합니다.
 
 #### Planning / 기획
 | Command | EN | KO |
@@ -511,9 +514,9 @@ You type: /ceo "Build me a SaaS"
 
 | System | Repo | What it provides (EN) | 제공 내용 (KO) |
 |--------|------|----------------------|----------------|
-| **ECC** | [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) | 183 skills + 79 commands | 스킬 183개 + 커맨드 79개 |
+| **ECC** | [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) | 183 skills (skills only — accessed via CEO-*) | 스킬 183개 (CEO-* 통해 접근) |
 | **gstack** | [garrytan/gstack](https://github.com/garrytan/gstack) | Garry Tan's battle-tested toolkit | Garry Tan의 검증된 툴킷 |
-| **Superpowers** | obra/superpowers-marketplace | Claude Code marketplace superpowers | Claude Code 마켓플레이스 슈퍼파워 |
+| **Superpowers** | obra/superpowers-marketplace | **Required.** Installer fails if not installed | **필수.** 미설치 시 설치 중단 |
 
 ---
 
