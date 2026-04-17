@@ -45,15 +45,16 @@
 - MAJOR (1st): 사용자 명시 — 브레이킹 체인지 (API 변경, 구조 변경)
 - CEO는 PATCH만 자동 변경, MINOR/MAJOR는 사용자 명시 없이 절대 변경 금지
 
-**버전 업데이트 필수 절차:**
-1. `docore/VERSION` 파일 업데이트
-2. `docore/CLAUDE.md` 헤더 업데이트
-3. `docore/skills/ceo-system/SKILL.md` 헤더 업데이트
-4. `README.md` 버전 배지 업데이트
+**버전 업데이트 필수 절차 (커밋 전 반드시 전부 완료):**
+1. `docore/VERSION` 파일 업데이트 ← **이것이 단일 소스**
+2. `docore/CLAUDE.md` 헤더 (`# docrew vX.X.X`) 업데이트
+3. `docore/skills/ceo-system/SKILL.md` 헤더 (`# CEO AGENT SYSTEM vX.X.X`) 업데이트
+4. `README.md` 버전 배지 (`version-X.X.X`) 업데이트
 5. git commit: `v{VERSION}: 변경 내용`
 
-**금지사항:**
+**절대 금지 (위반 시 버전 혼란 발생):**
+- VERSION 파일 수정 없이 커밋 메시지에만 버전 번호 사용 금지
 - VERSION 파일 수정 없이 다른 파일의 버전 문자열만 변경 금지
-- 동일 작업 내에서 두 가지 다른 버전 번호 사용 금지 (예: README는 v1.3.x, 시스템은 v1.0.x)
+- 동일 작업 내에서 두 가지 다른 버전 번호 사용 금지
 
 ## 준비 완료 — 지시를 내려주세요
