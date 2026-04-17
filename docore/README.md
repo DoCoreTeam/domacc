@@ -125,7 +125,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/docrew/main/docore/instal
 |------|------------|---------------|
 | GATE 1 | Error patterns + **300-line limit** (auto-blocked) | 오류 패턴 + **300줄 초과 자동 차단** |
 | GATE 2 | All completion criteria met | 완료 조건 충족 |
-| GATE 3 | Version tag `v0.0.0` present | 버전 태그 존재 |
+| GATE 3 | Version tag matches `docore/VERSION` | 버전 태그 존재 |
 | GATE 4 | Builder ≠ Reviewer (enforced) | 빌더 ≠ 리뷰어 강제 |
 | GATE 5 | No breaking changes without approval | 승인 없는 브레이킹 체인지 차단 |
 

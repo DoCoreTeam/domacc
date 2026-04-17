@@ -221,7 +221,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/docrew/main/docore/instal
 |------|-------|
 | GATE 1 | Error registry scan + **300-line file limit** (auto-blocked) |
 | GATE 2 | All completion criteria verified |
-| GATE 3 | Version tag `v0.0.0` present |
+| GATE 3 | Version tag matches `docore/VERSION` |
 | GATE 4 | Builder ≠ Reviewer (enforced) |
 | GATE 5 | Breaking changes blocked without approval |
 
