@@ -169,6 +169,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/docrew/main/docore/instal
 | `/ceo-feature [feature]` | Full feature lifecycle | 기능 전체 라이프사이클 |
 | `/ceo-init` | Initialize project | 프로젝트 초기화 |
 | `/ceo-status` | Show current status | 현재 상태 조회 |
+| `/ceo-version` | Check version + prompt update if behind | 버전 확인 + 업데이트 여부 물어봄 |
 | `/ceo-update` | Update all components to latest | 모든 컴포넌트 최신 버전 업데이트 |
 
 ### Tactical Orchestrators / 전술 오케스트레이터

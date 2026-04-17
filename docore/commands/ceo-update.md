@@ -4,6 +4,8 @@
 
 **KO** — CEO와 모든 의존성 (ECC, gstack, Superpowers)을 최신 버전으로 업데이트합니다. 레지스트리는 보존됩니다.
 
+> 💡 업데이트 전에 현재 버전을 확인하려면 `/ceo-version` 을 먼저 실행하세요.
+
 ## 실행 / Execution
 
 ```bash
