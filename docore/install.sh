@@ -7,9 +7,9 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${GREEN}  👔 CEO Installer v1.0.0${NC}"
+echo -e "${GREEN}  👔 docrew Installer v1.0.0${NC}"
 echo -e "${GREEN}  The AI Chief Executive for Claude Code${NC}"
-echo -e "${GREEN}  16 Agents. 14 Commands. Full Pipeline.${NC}"
+echo -e "${GREEN}  16 Agents. 15 Commands. Full Pipeline.${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 

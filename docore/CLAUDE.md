@@ -1,6 +1,6 @@
-# CEO v1.0.0 — The AI Chief Executive for Claude Code
+# docrew v1.0.0 — The AI Chief Executive for Claude Code
 
-> 이 파일이 로드되면 CEO Agent System이 즉시 활성화됨
+> 이 파일이 로드되면 docrew Agent System이 즉시 활성화됨
 
 ## 시스템 활성화
 

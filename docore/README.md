@@ -1,7 +1,7 @@
-# 👔 CEO — The AI Chief Executive for Claude Code
+# 👔 docrew — The AI Chief Executive for Claude Code
 
-> You are the Founder. CEO runs your entire engineering team.
-> 당신은 창업자입니다. CEO가 당신의 전체 엔지니어링 팀을 운영합니다.
+> You are the Founder. docrew runs your entire engineering team.
+> 당신은 창업자입니다. docrew가 당신의 전체 엔지니어링 팀을 운영합니다.
 
 ```bash
 # Install / 설치

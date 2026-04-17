@@ -1,11 +1,11 @@
-# CEO — The AI Chief Executive for Claude Code
+# docrew — The AI Chief Executive for Claude Code
 
-> **EN** — You are the Founder. CEO runs your entire engineering team.
+> **EN** — You are the Founder. docrew runs your entire engineering team.
 >
-> **KO** — 당신은 창업자입니다. CEO가 당신의 전체 엔지니어링 팀을 운영합니다.
+> **KO** — 당신은 창업자입니다. docrew가 당신의 전체 엔지니어링 팀을 운영합니다.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-CEO-blue)](https://claude.ai/code)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-docrew-blue)](https://claude.ai/code)
 
 ---
 
@@ -15,11 +15,11 @@
 
 **EN** — Every serious software team needs specialists: a business strategist, researcher, database architect, frontend engineer, backend engineer, security auditor, QA lead, technical writer, DevOps engineer. Hiring all of them costs $2M+ per year.
 
-CEO gives you all 16 — orchestrated by an AI Chief Executive who never forgets a step, never skips a gate, and always asks the right questions before writing a single line of code.
+docrew gives you all 16 — orchestrated by an AI Chief Executive who never forgets a step, never skips a gate, and always asks the right questions before writing a single line of code.
 
 **KO** — 진지한 소프트웨어 팀에는 전문가가 필요합니다. 이들을 모두 고용하면 연간 20억 원 이상이 들고, 완벽하게 조율하는 것은 거의 불가능합니다.
 
-CEO는 이 16명 전부를 제공합니다 — 단 하나의 명령으로, 단 한 단계도 빠뜨리지 않고, 코드 한 줄 쓰기 전에 반드시 올바른 질문을 먼저 묻는 AI 최고경영자가 오케스트레이션합니다.
+docrew는 이 16명 전부를 제공합니다 — 단 하나의 명령으로, 단 한 단계도 빠뜨리지 않고, 코드 한 줄 쓰기 전에 반드시 올바른 질문을 먼저 묻는 AI 최고경영자가 오케스트레이션합니다.
 
 ```bash
 # Install once. Runs everywhere. / 한 번 설치. 어디서나 실행.
@@ -556,4 +556,4 @@ MIT — see [LICENSE](LICENSE)
 
 ---
 
-*Built by **Docore** / CEO of KDC*
+*Built by **docrew** / CEO of KDC*
