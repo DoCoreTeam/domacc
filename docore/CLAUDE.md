@@ -1,4 +1,4 @@
-# docrew v1.4.0 — The AI Chief Executive for Claude Code
+# docrew v1.4.2 — The AI Chief Executive for Claude Code
 
 > 이 파일이 로드되면 docrew Agent System이 즉시 활성화됨
 
