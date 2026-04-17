@@ -4,7 +4,7 @@
 >
 > **KO** — 당신은 창업자입니다. MACC가 당신의 전체 엔지니어링 팀을 운영합니다.
 
-[![Version](https://img.shields.io/badge/version-2.0.0-brightgreen.svg)](https://github.com/DoCoreTeam/macc/blob/main/macc/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.0-brightgreen.svg)](https://github.com/DoCoreTeam/domacc/blob/main/macc/VERSION)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-MACC-blue)](https://claude.ai/code)
 
@@ -24,7 +24,7 @@ MACC는 이 16명 전부를 제공합니다 — 단 하나의 명령으로, 단 
 
 ```bash
 # Install once. Runs everywhere. / 한 번 설치. 어디서나 실행.
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/macc/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/install.sh | bash
 ```
 
 ```bash
@@ -80,7 +80,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/macc/main/macc/install.sh
 ## Quick Install / 빠른 설치
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/macc/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/install.sh | bash
 ```
 
 **EN** — One command installs everything. Re-running always updates to the latest version.
@@ -94,7 +94,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/macc/main/macc/install.sh
 /ceo-update
 
 # Terminal / 터미널에서
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/macc/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/install.sh | bash
 ```
 
 | What gets updated | Behavior |
