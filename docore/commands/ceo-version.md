@@ -7,7 +7,12 @@
 ### STEP 1: 현재 설치 버전 읽기
 
 ```bash
-INSTALLED=$(cat ~/.claude/skills/ceo-system/SKILL.md 2>/dev/null | grep "^# docrew v" | head -1 | sed 's/# docrew v//' | cut -d' ' -f1)
+# 1순위: CLAUDE.md (가장 신뢰할 수 있는 소스)
+INSTALLED=$(grep "^# docrew v" ~/.claude/CLAUDE.md 2>/dev/null | head -1 | sed 's/# docrew v//' | cut -d' ' -f1)
+# 2순위: SKILL.md (헤더 패턴이 다를 수 있음)
+if [ -z "$INSTALLED" ]; then
+  INSTALLED=$(grep "^# CEO AGENT SYSTEM v\|^# docrew v" ~/.claude/skills/ceo-system/SKILL.md 2>/dev/null | head -1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+fi
 echo "설치된 버전: ${INSTALLED:-알 수 없음}"
 ```
 
