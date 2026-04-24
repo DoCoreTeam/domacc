@@ -219,9 +219,18 @@ MACC_POST = {
     "matcher": "Write|Edit|MultiEdit",
     "hooks": [{"type": "command", "command": f'bash "{hooks_dir}/macc-post-edit.sh"'}]
 }
+# async: true — CEO quality review runs in background so session ends immediately
 MACC_STOP = {
-    "hooks": [{"type": "command", "command": f'bash "{hooks_dir}/macc-stop.sh"'}]
+    "hooks": [{"type": "command", "command": f'bash "{hooks_dir}/macc-stop.sh"', "timeout": 120, "async": True}]
 }
+# macc-stop-checks.js: TypeScript check + Playwright smoke test (ECC plugin)
+# Runs FIRST so it can read the edited-files accumulator before format-typecheck clears it
+MACC_STOP_CHECKS_PATH = os.path.join(claude_dir, "scripts", "hooks", "macc-stop-checks.js")
+MACC_STOP_CHECKS = {
+    "matcher": "*",
+    "hooks": [{"type": "command", "command": f'node "{MACC_STOP_CHECKS_PATH}"', "timeout": 120}],
+    "description": "MACC Stop Guard: TypeScript BLOCKING check + Playwright smoke test"
+} if os.path.exists(MACC_STOP_CHECKS_PATH) else None
 
 settings = {}
 if os.path.exists(settings_path):
@@ -239,9 +248,15 @@ post = [h for h in post if not any("macc-post-edit" in sub.get("command","") for
 post.append(MACC_POST)
 hooks["PostToolUse"] = post
 
-# Stop — remove old MACC hook, append fresh
+# Stop — remove old MACC hooks, re-inject in correct order
 stop = hooks.get("Stop", [])
-stop = [h for h in stop if not any("macc-stop" in sub.get("command","") for sub in h.get("hooks",[]))]
+stop = [h for h in stop if not any(
+    "macc-stop" in sub.get("command","") for sub in h.get("hooks",[])
+)]
+# 1st: macc-stop-checks (sync, blocking tsc + playwright) — reads accumulator before it's cleared
+if MACC_STOP_CHECKS:
+    stop.insert(0, MACC_STOP_CHECKS)
+# Last: macc-stop.sh (async, CEO quality review via claude -p)
 stop.append(MACC_STOP)
 hooks["Stop"] = stop
 
